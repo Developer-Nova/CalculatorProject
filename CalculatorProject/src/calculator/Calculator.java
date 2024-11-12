@@ -1,5 +1,6 @@
 package calculator;
 
+import exception.DivisionByZeroException;
 import operator.UserOperator;
 
 import java.util.LinkedList;
@@ -35,9 +36,14 @@ public class Calculator {
     }
 
     public int calculate() {
-        int result = operator.calculate(this.firstValue, this.secondValue);
-        resultList.add(result);
+        try {
+            int result = operator.calculate(this.firstValue, this.secondValue);
+            resultList.add(result);
 
-        return result;
+            return result;
+        } catch (DivisionByZeroException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
     }
 }

@@ -1,6 +1,7 @@
 package user;
 
 import calculator.Calculator;
+import exception.DivisionByZeroException;
 import operator.*;
 
 import java.util.Scanner;
