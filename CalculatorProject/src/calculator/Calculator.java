@@ -1,49 +1,41 @@
 package calculator;
 
+import calculator.input.Input;
 import exception.DivisionByZeroException;
-import operator.UserOperator;
-
-import java.util.LinkedList;
+import calculator.repository.Repository;
+import exception.EmptyListException;
+import exception.InvalidOperatorException;
 
 public class Calculator {
 
-    private final LinkedList<Integer> resultList = new LinkedList<>();
-    private UserOperator operator;
-    private int firstValue;
-    private int secondValue;
+    private final Input input = new Input();
+    private final Repository list;
 
-    public Calculator() {
+    public Calculator(Repository list) {
+        this.list = list;
     }
 
-    public String getResultList() {
-        return resultList.toString();
+    public String getList() throws EmptyListException {
+        return list.getList();
     }
 
-    public int deleteFirstValue() {
-        return this.resultList.removeFirst();
+    public int deleteFirstValue() throws EmptyListException {
+        return list.deleteFirstValue();
     }
 
-    public void setFirstValue(int value) {
-        this.firstValue = value;
+    public void setFirstValue(int value) throws NumberFormatException {
+        input.setFirstValue(Parser.parseFirstNum(value));
     }
 
-    public void setSecondValue(int value) {
-        this.secondValue = value;
+    public void setSecondValue(int value) throws NumberFormatException {
+        input.setSecondValue(Parser.parseSecondNum(value));
     }
 
-    public void setOperator(UserOperator operator) {
-        this.operator = operator;
+    public void setOperator(String operator) throws InvalidOperatorException {
+        input.setOperator(Parser.parseOperator(operator));
     }
 
-    public int calculate() {
-        try {
-            int result = operator.calculate(this.firstValue, this.secondValue);
-            resultList.add(result);
-
-            return result;
-        } catch (DivisionByZeroException e) {
-            System.out.println(e.getMessage());
-            return 0;
-        }
+    public int calculate() throws DivisionByZeroException {
+        return list.addValue(input.getOperator().calculate(input.getFirstValue(), input.getSecondValue()));
     }
 }
