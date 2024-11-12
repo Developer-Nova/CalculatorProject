@@ -25,13 +25,13 @@ public class Lv1Calculator {
         int result;
         switch (operator) {
             case "+":
-                result = add(firstValue, secondValue); // 계산 로직 메서드로 분리
+                result = add(firstValue, secondValue);
                 break;
             case "-":
                 result = subtraction(firstValue, secondValue);
                 break;
             case "/":
-                result = divide(firstValue, secondValue); // 나눗셈에 대한 예외 상황 처리
+                result = divide(firstValue, secondValue);
                 break;
             case "*":
                 result = multiply(firstValue, secondValue);
@@ -49,7 +49,7 @@ public class Lv1Calculator {
     }
 
     private static int divide(int firstValue, int secondValue) {
-        return firstValue / secondValue;
+        return (secondValue != 0) ? firstValue / secondValue : safeDivideWithZeroCheck();
     }
 
     private static int subtraction(int firstValue, int secondValue) {
@@ -58,5 +58,10 @@ public class Lv1Calculator {
 
     private static int add(int firstValue, int secondValue) {
         return firstValue + secondValue;
+    }
+
+    private static int safeDivideWithZeroCheck() {
+        System.out.println("0 으로 나눌 수 없습니다.");
+        return 0;
     }
 }
