@@ -14,7 +14,6 @@ public abstract class Parser {
     }
 
     public static UserOperator parseOperator(String operationInput) throws InvalidOperatorException {
-
         switch (operationInput) {
             case "+" -> {
                 return new AddOperator();

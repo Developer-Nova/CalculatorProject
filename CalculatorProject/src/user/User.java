@@ -6,6 +6,7 @@ import exception.DivisionByZeroException;
 import exception.EmptyListException;
 import exception.InvalidOperatorException;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class User {
@@ -27,11 +28,14 @@ public class User {
                 }
             } catch (EmptyListException e) {
                 System.out.println(e.getMessage());
+            } catch (InputMismatchException e) {
+                System.out.println("숫자를 입력해 주세요. error: " + e.getMessage());
+                scanner.nextLine();
             }
         }
     }
 
-    private void processCalculation(Scanner scanner) {
+    private void processCalculation(Scanner scanner) throws InputMismatchException {
         while (true) {
             try {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -45,8 +49,9 @@ public class User {
                 this.calculator.setOperator(scanner.nextLine());
 
                 System.out.println("결과: " + calculator.calculate());
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException | InputMismatchException e) {
                 System.out.println("숫자를 입력해 주세요. error: " + e.getMessage());
+                scanner.nextLine();
             } catch (InvalidOperatorException | DivisionByZeroException e) {
                 System.out.println(e.getMessage());
             }
