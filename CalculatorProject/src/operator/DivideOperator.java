@@ -4,6 +4,6 @@ public class DivideOperator implements UserOperator {
 
     @Override
     public int calculate(int firstValue, int secondValue) {
-        return firstValue / secondValue;
+        return (secondValue != 0) ? firstValue / secondValue : 0;
     }
 }
