@@ -2,11 +2,11 @@ package calculator;
 
 import operator.UserOperator;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Calculator {
 
-    private final ArrayList<Integer> resultList = new ArrayList<>();
+    private final LinkedList<Integer> resultList = new LinkedList<>();
     private final UserOperator operator;
     private int firstValue;
     private int secondValue;
@@ -17,6 +17,10 @@ public class Calculator {
 
     public String getResultList() {
         return resultList.toString();
+    }
+
+    public int deleteFirstValue() {
+        return this.resultList.removeFirst();
     }
 
     public void setFirstValue(int value) {
