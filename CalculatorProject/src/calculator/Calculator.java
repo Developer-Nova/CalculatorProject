@@ -8,22 +8,29 @@ public class Calculator {
 
     private final ArrayList<Integer> resultList = new ArrayList<>();
     private final UserOperator operator;
-    private Integer firstValue;
-    private Integer secondValue;
+    private int firstValue;
+    private int secondValue;
 
     public Calculator(UserOperator operator) {
         this.operator = operator;
     }
 
-    public void setFirstValue(Integer value) {
+    public String getResultList() {
+        return resultList.toString();
+    }
+
+    public void setFirstValue(int value) {
         this.firstValue = value;
     }
 
-    public void setSecondValue(Integer value) {
+    public void setSecondValue(int value) {
         this.secondValue = value;
     }
 
-    public void calculate() {
-        operator.calculate(this.firstValue, this.secondValue);
+    public int calculate() {
+        int result = operator.calculate(this.firstValue, this.secondValue);
+        resultList.add(result);
+
+        return result;
     }
 }
