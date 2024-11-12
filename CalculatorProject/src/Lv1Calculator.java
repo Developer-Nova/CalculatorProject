@@ -25,21 +25,38 @@ public class Lv1Calculator {
         int result;
         switch (operator) {
             case "+":
-                result = firstValue + secondValue;
+                result = add(firstValue, secondValue); // 계산 로직 메서드로 분리
                 break;
             case "-":
-                result = firstValue - secondValue;
+                result = subtraction(firstValue, secondValue);
                 break;
             case "/":
-                result = firstValue / secondValue;
+                result = divide(firstValue, secondValue); // 나눗셈에 대한 예외 상황 처리
                 break;
             case "*":
-                result = firstValue * secondValue;
+                result = multiply(firstValue, secondValue);
                 break;
             default:
                 result = 0;
                 System.out.println("잘못된 연산자 입니다.");
         }
+
         System.out.println("결과: " + result);
+    }
+
+    private static int multiply(int firstValue, int secondValue) {
+        return firstValue * secondValue;
+    }
+
+    private static int divide(int firstValue, int secondValue) {
+        return firstValue / secondValue;
+    }
+
+    private static int subtraction(int firstValue, int secondValue) {
+        return firstValue - secondValue;
+    }
+
+    private static int add(int firstValue, int secondValue) {
+        return firstValue + secondValue;
     }
 }
