@@ -23,6 +23,7 @@ public class Lv1Calculator {
 
         System.out.print("두 번째 숫자를 입력하세요: ");
         int secondValue = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.print("사칙연산 기호를 입력하세요: ");
         String operator = scanner.nextLine();
