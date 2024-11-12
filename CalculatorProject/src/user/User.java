@@ -32,9 +32,7 @@ public class User {
     }
 
     private void processCalculation(Scanner scanner) {
-        boolean flag = true;
-
-        while (flag) {
+        while (true) {
             try {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
                 this.calculator.setFirstValue(scanner.nextInt());
@@ -53,9 +51,17 @@ public class User {
                 System.out.println(e.getMessage());
             }
 
-            System.out.print("더 계산하시겠습니까? (exit 입력 시 메뉴 탭으로): ");
-            if (scanner.nextLine().equals("exit")) {
-                flag = false;
+            while (true) {
+                System.out.print("더 계산하시겠습니까? (Y / N): ");
+                String choice = scanner.nextLine();
+                if (choice.equals("Y")) {
+                    break;
+                } else if (choice.equals("N")) {
+                    return;
+                } else {
+                    System.out.println("다시 입력해주세요.");
+                    System.out.println();
+                }
             }
         }
     }
