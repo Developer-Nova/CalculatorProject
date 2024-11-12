@@ -18,5 +18,28 @@ public class Lv1Calculator {
         System.out.print("사칙연산 기호를 입력하세요: ");
         String operator = scanner.nextLine();
 
+        calculate(firstValue, secondValue, operator);
+    }
+
+    private static void calculate(int firstValue, int secondValue, String operator) {
+        int result;
+        switch (operator) {
+            case "+":
+                result = firstValue + secondValue;
+                break;
+            case "-":
+                result = firstValue - secondValue;
+                break;
+            case "/":
+                result = firstValue / secondValue;
+                break;
+            case "*":
+                result = firstValue * secondValue;
+                break;
+            default:
+                result = 0;
+                System.out.println("잘못된 연산자 입니다.");
+        }
+        System.out.println("결과: " + result);
     }
 }
