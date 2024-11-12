@@ -4,8 +4,17 @@ public class Lv1Calculator {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        boolean flag = true;
 
-        getStart(scanner);
+        while (flag) {
+            getStart(scanner);
+
+            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료): ");
+            String userChoice = scanner.nextLine();
+            if (userChoice.equals("exit")) {
+                flag = false;
+            }
+        }
     }
 
     private static void getStart(Scanner scanner) {
