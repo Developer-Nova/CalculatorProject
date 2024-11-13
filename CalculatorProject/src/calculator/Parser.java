@@ -3,7 +3,12 @@ package calculator;
 import exception.InvalidOperatorException;
 import operator.*;
 
-public abstract class Parser {
+import java.util.EnumSet;
+
+public class Parser {
+
+    private Parser() {
+    }
 
     public static int parseFirstNum(int firstInput) throws NumberFormatException {
         return Integer.parseInt(String.valueOf(firstInput));
@@ -14,20 +19,10 @@ public abstract class Parser {
     }
 
     public static UserOperator parseOperator(String operationInput) throws InvalidOperatorException {
-        switch (operationInput) {
-            case "+" -> {
-                return new AddOperator();
-            }
-            case "-" -> {
-                return new SubtractionOperator();
-            }
-            case "/" -> {
-                return new DivideOperator();
-            }
-            case "*" -> {
-                return new MultiplyOperator();
-            }
-            default -> throw new InvalidOperatorException("올바르지 않은 연산자 입니다.");
-        }
+        return EnumSet.allOf(Operator.class).stream()
+                .filter(operator -> operator.getStringOperator().equals(operationInput))
+                .findFirst()
+                .orElseThrow(() -> new InvalidOperatorException("올바르지 않은 연산자 입니다."))
+                .getOperator();
     }
 }

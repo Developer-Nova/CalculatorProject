@@ -1,6 +1,5 @@
 package calculator;
 
-import calculator.input.Input;
 import exception.DivisionByZeroException;
 import calculator.repository.Repository;
 import exception.EmptyListException;
@@ -8,7 +7,7 @@ import exception.InvalidOperatorException;
 
 public class Calculator {
 
-    private final Input input = new Input();
+    private final CalculationContext context = new CalculationContext();
     private final Repository list;
 
     public Calculator(Repository list) {
@@ -24,18 +23,18 @@ public class Calculator {
     }
 
     public void setFirstValue(int value) throws NumberFormatException {
-        input.setFirstValue(Parser.parseFirstNum(value));
+        context.setFirstValue(Parser.parseFirstNum(value));
     }
 
     public void setSecondValue(int value) throws NumberFormatException {
-        input.setSecondValue(Parser.parseSecondNum(value));
+        context.setSecondValue(Parser.parseSecondNum(value));
     }
 
     public void setOperator(String operator) throws InvalidOperatorException {
-        input.setOperator(Parser.parseOperator(operator));
+        context.setOperator(Parser.parseOperator(operator));
     }
 
     public int calculate() throws DivisionByZeroException {
-        return list.addValue(input.getOperator().calculate(input.getFirstValue(), input.getSecondValue()));
+        return list.addValue(context.calculate());
     }
 }

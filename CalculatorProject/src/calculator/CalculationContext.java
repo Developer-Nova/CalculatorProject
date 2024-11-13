@@ -1,8 +1,9 @@
-package calculator.input;
+package calculator;
 
+import exception.DivisionByZeroException;
 import operator.UserOperator;
 
-public class Input {
+public class CalculationContext {
 
     private UserOperator operator;
     private int firstValue;
@@ -10,14 +11,6 @@ public class Input {
 
     public UserOperator getOperator() {
         return operator;
-    }
-
-    public int getFirstValue() {
-        return firstValue;
-    }
-
-    public int getSecondValue() {
-        return secondValue;
     }
 
     public void setOperator(UserOperator operator) {
@@ -30,5 +23,9 @@ public class Input {
 
     public void setSecondValue(int secondValue) {
         this.secondValue = secondValue;
+    }
+
+    public int calculate() throws DivisionByZeroException {
+        return this.operator.calculate(this.firstValue, this.secondValue);
     }
 }
