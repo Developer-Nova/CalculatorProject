@@ -4,9 +4,9 @@ import exception.EmptyListException;
 
 public interface Repository {
 
-    int addValue(int value);
+    double addValue(double value);
 
     String getList() throws EmptyListException;
 
-    int deleteFirstValue() throws EmptyListException;
+    double deleteFirstValue() throws EmptyListException;
 }

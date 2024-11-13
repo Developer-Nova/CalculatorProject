@@ -18,15 +18,15 @@ public class Calculator {
         return list.getList();
     }
 
-    public int deleteFirstValue() throws EmptyListException {
+    public double deleteFirstValue() throws EmptyListException {
         return list.deleteFirstValue();
     }
 
-    public void setFirstValue(int value) throws NumberFormatException {
+    public void setFirstValue(double value) throws NumberFormatException {
         context.setFirstValue(Parser.parseFirstNum(value));
     }
 
-    public void setSecondValue(int value) throws NumberFormatException {
+    public void setSecondValue(double value) throws NumberFormatException {
         context.setSecondValue(Parser.parseSecondNum(value));
     }
 
@@ -34,7 +34,7 @@ public class Calculator {
         context.setOperator(Parser.parseOperator(operator));
     }
 
-    public int calculate() throws DivisionByZeroException {
+    public double calculate() throws DivisionByZeroException {
         return list.addValue(context.calculate());
     }
 }

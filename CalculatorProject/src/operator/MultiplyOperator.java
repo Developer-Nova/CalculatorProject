@@ -3,7 +3,7 @@ package operator;
 public class MultiplyOperator implements UserOperator {
 
     @Override
-    public int calculate(int firstValue, int secondValue) {
+    public double calculate(double firstValue, double secondValue) {
         return firstValue * secondValue;
     }
 }

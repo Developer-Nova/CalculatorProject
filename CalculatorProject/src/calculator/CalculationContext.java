@@ -6,26 +6,22 @@ import operator.UserOperator;
 public class CalculationContext {
 
     private UserOperator operator;
-    private int firstValue;
-    private int secondValue;
-
-    public UserOperator getOperator() {
-        return operator;
-    }
+    private double firstValue;
+    private double secondValue;
 
     public void setOperator(UserOperator operator) {
         this.operator = operator;
     }
 
-    public void setFirstValue(int firstValue) {
+    public void setFirstValue(double firstValue) {
         this.firstValue = firstValue;
     }
 
-    public void setSecondValue(int secondValue) {
+    public void setSecondValue(double secondValue) {
         this.secondValue = secondValue;
     }
 
-    public int calculate() throws DivisionByZeroException {
+    public double calculate() throws DivisionByZeroException {
         return this.operator.calculate(this.firstValue, this.secondValue);
     }
 }

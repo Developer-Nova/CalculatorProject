@@ -6,10 +6,10 @@ import java.util.LinkedList;
 
 public class ResultRepository implements Repository {
 
-    private final LinkedList<Integer> list = new LinkedList<>();
+    private final LinkedList<Double> list = new LinkedList<>();
 
     @Override
-    public int addValue(int value) {
+    public double addValue(double value) {
         list.add(value);
         return value;
     }
@@ -23,7 +23,7 @@ public class ResultRepository implements Repository {
     }
 
     @Override
-    public int deleteFirstValue() throws EmptyListException {
+    public double deleteFirstValue() throws EmptyListException {
         if (list.isEmpty()) {
             throw new EmptyListException("리스트가 비어있습니다.");
         }

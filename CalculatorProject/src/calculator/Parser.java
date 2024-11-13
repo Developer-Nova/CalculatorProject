@@ -10,12 +10,12 @@ public class Parser {
     private Parser() {
     }
 
-    public static int parseFirstNum(int firstInput) throws NumberFormatException {
-        return Integer.parseInt(String.valueOf(firstInput));
+    public static double parseFirstNum(double firstInput) throws NumberFormatException {
+        return Double.parseDouble(String.valueOf(firstInput));
     }
 
-    public static int parseSecondNum(int secondInput) throws NumberFormatException {
-        return Integer.parseInt(String.valueOf(secondInput));
+    public static double parseSecondNum(double secondInput) throws NumberFormatException {
+        return Double.parseDouble(String.valueOf(secondInput));
     }
 
     public static UserOperator parseOperator(String operationInput) throws InvalidOperatorException {

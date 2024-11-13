@@ -39,10 +39,10 @@ public class User {
         while (true) {
             try {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                this.calculator.setFirstValue(scanner.nextInt());
+                this.calculator.setFirstValue(scanner.nextDouble());
 
                 System.out.print("두 번째 숫자를 입력하세요: ");
-                this.calculator.setSecondValue(scanner.nextInt());
+                this.calculator.setSecondValue(scanner.nextDouble());
                 scanner.nextLine();
 
                 System.out.print("사칙연산 기호를 입력하세요: ");
