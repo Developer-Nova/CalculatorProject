@@ -59,9 +59,9 @@ public class User {
             while (true) {
                 System.out.print("더 계산하시겠습니까? (Y / N): ");
                 String choice = scanner.nextLine();
-                if (choice.equals("Y")) {
+                if (choice.equals("Y") || choice.equals("y")) {
                     break;
-                } else if (choice.equals("N")) {
+                } else if (choice.equals("N") || choice.equals("n")) {
                     return;
                 } else {
                     System.out.println("다시 입력해주세요.");
