@@ -4,8 +4,8 @@
 
 ## ☑️ Index
 - [Team](#-Team)   
-- [Project](#-Commit-Message-Convention)   
-- [Learn About](#-Git-Flow)   
+- [Commit Message Convention](#-Commit-Message-Convention)   
+- [Git Flow](#-Git-Flow)   
 
 <br>
 
