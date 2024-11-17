@@ -4,7 +4,7 @@
 
 ## ☑️ Index
 - [Team](#-Team)   
-- [Commit Message Convention](#-Commit-Message-Convention)   
+- [Commit Convention](#-Commit-Convention)   
 - [Git Flow](#-Git-Flow)   
 
 <br>
@@ -17,7 +17,7 @@
 
 <br>
 
-## 📑 Commit Message Convention
+## 📑 Commit Convention
 
 **`feat`** : 새로운 기능 추가
 
